@@ -7,16 +7,16 @@ SliderModel sliderModelFromJson(String str) =>
 String sliderModelToJson(SliderModel data) => json.encode(data.toJson());
 
 class SliderModel {
-  int status;
-  String message;
-  String messageAr;
-  List<Datum> data;
+  int? status;
+  String? message;
+  String? messageAr;
+  List<Datum>? data;
 
   SliderModel({
-    required this.status,
-    required this.message,
-    required this.messageAr,
-    required this.data,
+    this.status,
+    this.message,
+    this.messageAr,
+    this.data,
   });
 
   factory SliderModel.fromJson(Map<String, dynamic> json) => SliderModel(
@@ -30,7 +30,7 @@ class SliderModel {
         "status": status,
         "message": message,
         "message_ar": messageAr,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data?.map((x) => x.toJson())??[]),
       };
 }
 
